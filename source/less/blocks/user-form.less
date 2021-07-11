@@ -1,18 +1,66 @@
 .user-form {
   text-align: center;
+  margin-bottom: 25px;
+
+  @media (min-width: @tablet) {
+    margin-bottom: 73px;
+  }
 }
 
 .user-form__item {
   text-align: center;
   margin-top: 25px;
+  display: flex;
 }
 
 .user-form__field {
+
   min-width: 300px;
-  max-width: 520px;
   height: 60px;
   border: 1px solid @light-grey;
   box-sizing: border-box;
   margin: 0 auto;
   text-align: center;
+
+  @media (min-width: @tablet) {
+    min-width: 520px;
+  }
 }
+
+input[id="birthday-date"] {
+  ::-webkit-calendar-picker-indicator {
+    color: transparent;
+  }
+
+  @media (min-width: @tablet) {
+    min-width: 320px;
+  }
+}
+
+
+::-webkit-input-placeholder {
+  color: @text-grey;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+
+::-moz-placeholder {
+  color: @text-grey;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}/* Firefox 19+ */
+:-moz-placeholder {
+  color: @text-grey;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}/* Firefox 18- */
+:-ms-input-placeholder {
+  color: @text-grey;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+

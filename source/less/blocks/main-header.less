@@ -1,0 +1,54 @@
+.main-header {
+
+}
+
+.main-header__menu {
+  text-align: right;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  @media (min-width: @tablet) {
+    display: none;
+  }
+}
+
+.menu__icon {
+  margin: 10px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+
+  &::before,
+  &::after,
+  span {
+    left: 4%;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    transition: all 0.3s ease 0s;
+    background-color: @asphalt;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+  }
+
+  &::before {
+    top: 10%;
+  }
+
+  &::after {
+    bottom: 20%;
+  }
+
+  span {
+    top: 45%;
+    transform: scale(1) translate(0, -50%);
+  }
+}

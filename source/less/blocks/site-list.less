@@ -4,16 +4,11 @@
   font-weight: 300;
   list-style: none;
   padding: 0;
+  margin: 0 auto;
 }
 
 .site-list__item {
   cursor: pointer;
-  color: @asphalt;
-
-  &:hover,
-  :active {
-    color: @dark;
-  }
   flex-grow: 1;
   min-width: 300px;
   height: 50px;
@@ -22,11 +17,31 @@
   border-bottom: 1px solid @border;
   padding-top: 15px;
 
-  &--active {
+  a {
+
+    color: @asphalt;
+
+    &:hover,
+    :active {
+      color: @dark;
+    }
+  }
+
+  .site-list__link--active {
     color: @dark;
   }
 
+
   &:first-child {
     border-top: 1px solid @border;
+
+    @media (min-width: @tablet) {
+      border: none;
+    }
+  }
+
+  @media (min-width: @tablet) {
+    border: none;
+    min-width: 20px;
   }
 }
