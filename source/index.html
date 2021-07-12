@@ -21,12 +21,15 @@
       <div class="main-nav__wrapper">
         <ul class="main-nav__list site-list">
           <li class="site-list__item"> <a data-goto=".user-title__block-1"
-              class="site-list__link site-list__link--active " href="#">Личная информация</a></li>
-          <li class="site-list__item"> <a data-goto=".user-title__block-2" class="site-list__link " href="#"> Опыт</a>
+              class="site-list__link site-list__link--active " href="#user-title__block-1">Личная информация</a></li>
+          <li class="site-list__item"> <a data-goto=".user-title__block-2" class="site-list__link "
+              href="#user-title__block-2"> Опыт</a>
           </li>
-          <li class="site-list__item"> <a data-goto=".user-title__block-3" class="site-list__link " href="#">
+          <li class="site-list__item"> <a data-goto=".user-title__block-3" class="site-list__link "
+              href="#user-title__block-3">
               JavaScript</a></li>
-          <li class="site-list__item"> <a data-goto=".user-title__block-4" class="site-list__link " href="#"> О себе</a>
+          <li class="site-list__item"> <a data-goto=".user-title__block-4" class="site-list__link "
+              href="#user-title__block-4"> О себе</a>
           </li>
         </ul>
       </div>
@@ -45,7 +48,7 @@
           </g>
         </g>
       </svg>
-      <h2 class="user-title__block-name user-title__block-1">Личная информация</h2>
+      <h2 id="user-title__block-1" class="user-title__block-name">Личная информация</h2>
     </div>
     <form action="#" method="post">
       <div class="user-form">
@@ -56,7 +59,16 @@
         <div class="user-form__item">
           <label for="login"></label>
           <input class="user-form__field" type="text" name="birthday-date" id="birthday-date" placeholder="Год рождения"
-            required>
+            required readonly>
+          <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9">
+            <g>
+              <g>
+                <path fill="#435993"
+                  d="M13.763 2.234L8.617 7.38l.148.148-1.34 1.34-.149-.148-.148.148-1.34-1.34.148-.148L.79 2.234 2.13.894 7.277 6.04 12.422.894z" />
+              </g>
+            </g>
+          </svg>
+          <input class="visually-hidden user-form__field user-form__date" type="date" name="calendar" id="calendar">
         </div>
         <div class="user-form__item">
           <label for="homeplace"></label>
@@ -83,7 +95,7 @@
           </g>
         </svg>
 
-        <h2 class="user-title__block-name user-title__block-2">Расскажите о своем опыте</h2>
+        <h2 id="user-title__block-2" class="user-title__block-name">Расскажите о своем опыте</h2>
       </div>
 
       <div class="user-about">
@@ -123,7 +135,7 @@
             </g>
           </g>
         </svg>
-        <h2 class="user-title__block-name user-title__block-3">Уровень владения JavaScript</h2>
+        <h2 id="user-title__block-3" class="user-title__block-name">Уровень владения JavaScript</h2>
       </div>
       <div class="user-slider">
 
@@ -152,8 +164,26 @@
           <div class="user-slider__block block-3"></div>
           <div class="user-slider__block block-4"></div>
         </div>
-        <svg class="user-slider__icon" xmlns="http://www.w3.org/2000/svg" width="25" height="28" viewBox="0 0 25 28"><defs><clipPath id="ehw0a"><path fill="#fff" d="M23.79 15.845c0 6.071-4.922 10.993-10.995 10.993-6.072 0-10.995-4.922-10.995-10.993 0-4.214 2.373-7.87 5.854-9.715l3.714-3.713c.78-.78 2.044-.78 2.824 0L17.877 6.1c3.512 1.835 5.914 5.506 5.914 9.744z"/></clipPath></defs><g><g><path fill="#fff" d="M23.79 15.845c0 6.071-4.922 10.993-10.995 10.993-6.072 0-10.995-4.922-10.995-10.993 0-4.214 2.373-7.87 5.854-9.715l3.714-3.713c.78-.78 2.044-.78 2.824 0L17.877 6.1c3.512 1.835 5.914 5.506 5.914 9.744z"/><path fill="none" stroke="#b0b0b0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="20" stroke-width="2" d="M23.79 15.845c0 6.071-4.922 10.993-10.995 10.993-6.072 0-10.995-4.922-10.995-10.993 0-4.214 2.373-7.87 5.854-9.715l3.714-3.713c.78-.78 2.044-.78 2.824 0L17.877 6.1c3.512 1.835 5.914 5.506 5.914 9.744z" clip-path="url(&quot;#ehw0a&quot;)"/></g></g></svg>
-
+        <div class="user-slider__icon">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="28" viewBox="0 0 25 28">
+            <defs>
+              <clipPath id="ehw0a">
+                <path fill="#fff"
+                  d="M23.79 15.845c0 6.071-4.922 10.993-10.995 10.993-6.072 0-10.995-4.922-10.995-10.993 0-4.214 2.373-7.87 5.854-9.715l3.714-3.713c.78-.78 2.044-.78 2.824 0L17.877 6.1c3.512 1.835 5.914 5.506 5.914 9.744z" />
+              </clipPath>
+            </defs>
+            <g>
+              <g>
+                <path fill="#fff"
+                  d="M23.79 15.845c0 6.071-4.922 10.993-10.995 10.993-6.072 0-10.995-4.922-10.995-10.993 0-4.214 2.373-7.87 5.854-9.715l3.714-3.713c.78-.78 2.044-.78 2.824 0L17.877 6.1c3.512 1.835 5.914 5.506 5.914 9.744z" />
+                <path fill="none" stroke="#b0b0b0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="20"
+                  stroke-width="2"
+                  d="M23.79 15.845c0 6.071-4.922 10.993-10.995 10.993-6.072 0-10.995-4.922-10.995-10.993 0-4.214 2.373-7.87 5.854-9.715l3.714-3.713c.78-.78 2.044-.78 2.824 0L17.877 6.1c3.512 1.835 5.914 5.506 5.914 9.744z"
+                  clip-path="url(&quot;#ehw0a&quot;)" />
+              </g>
+            </g>
+          </svg>
+        </div>
       </div>
 
       <div class="user-title">
@@ -165,7 +195,7 @@
             </g>
           </g>
         </svg>
-        <h2 class="user-title__block-name user-title__block-4">Расскажите о себе</h2>
+        <h2 id="user-title__block-4" class="user-title__block-name">Расскажите о себе</h2>
       </div>
       <div class="user-why">
         <div class="user-why__wrapper">
@@ -174,7 +204,9 @@
           <textarea name="" id="" cols="30" rows="10" placeholder="Понравилась тем, что..."></textarea>
         </div>
       </div>
-      <input class="send" type="submit" value="Готово">
+      <div class="user-send-button">
+        <input class="send" type="submit" value="Готово">
+      </div>
     </form>
   </main>
   <script src="js/script.js"></script>

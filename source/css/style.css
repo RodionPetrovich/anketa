@@ -160,8 +160,12 @@ a {
   line-height: normal;
 }
 .user-form {
+  max-width: 768px;
   text-align: center;
+  margin: 0 auto;
   margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
 }
 @media (min-width: 768px) {
   .user-form {
@@ -172,6 +176,26 @@ a {
   text-align: center;
   margin-top: 25px;
   display: flex;
+  align-self: center;
+  justify-self: center;
+}
+.user-form__item:nth-child(2) {
+  position: relative;
+  max-width: 320px;
+  /*::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-image: url(/source/img/Shape_2_copy.svg);
+      top: 0;
+    }*/
+}
+.user-form__item:nth-child(2) .arrow {
+  position: absolute;
+  right: 10%;
+  top: 45%;
+  cursor: pointer;
 }
 .user-form__field {
   min-width: 300px;
@@ -180,19 +204,20 @@ a {
   box-sizing: border-box;
   margin: 0 auto;
   text-align: center;
+  padding-top: 10px;
 }
 @media (min-width: 768px) {
   .user-form__field {
     min-width: 520px;
   }
 }
-input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
-  color: transparent;
-}
 @media (min-width: 768px) {
   input[id="birthday-date"] {
     min-width: 320px;
   }
+}
+input[id="calendar"] {
+  min-width: 220px;
 }
 ::-webkit-input-placeholder {
   color: #c8c8c8;
@@ -219,6 +244,15 @@ input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
   font-size: 24px;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
+}
+.user-form__date {
+  position: absolute;
+  right: 25%;
+  z-index: 2;
+  justify-self: center;
+  align-self: center;
+  border: none;
+  height: 40px;
 }
 .user-about {
   max-width: 768px;
@@ -281,6 +315,7 @@ input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding: 10px;
 }
 .user-why__wrapper p {
   margin-bottom: 39px;
@@ -350,6 +385,7 @@ input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
   padding: 10px;
   min-width: 300px;
   display: flex;
+  justify-content: center;
   /*flex-direction: column;*/
 }
 @media (min-width: 768px) {
@@ -373,15 +409,21 @@ input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
   padding: 0;
   box-sizing: border-box;
   margin: 0;
+  height: 100%;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .user-slider__list {
+    flex-direction: row;
+  }
 }
 .user-slider__item {
   min-width: 192px;
   height: 50px;
-  margin-top: 10px;
-  box-sizing: border-box;
 }
 .user-slider__item p {
   margin: 0;
+  /*padding-top: 15px;*/
 }
 .user-slider__item:nth-child(2) p {
   width: 120px;
@@ -390,7 +432,7 @@ input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
   width: 180px;
 }
 @media (min-width: 768px) {
-  :nth-child(4) p {
+  .user-slider__item:nth-child(4) p {
     text-align: right;
   }
 }
@@ -398,21 +440,36 @@ input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 100px;
-  height: 250px;
-  background-color: turquoise;
+  height: 100%;
+  position: relative;
+}
+.user-slider__scale::after {
+  content: "";
+  position: absolute;
+  background-color: aqua;
+  height: 100%;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .user-slider__scale::after {
+    width: 100%;
+    height: 15px;
+    bottom: 0;
+  }
 }
 @media (min-width: 768px) {
   .user-slider__scale {
-    max-width: 768px;
+    width: 768px;
+    flex-direction: row;
     box-sizing: border-box;
     height: 30px;
-    background-color: turquoise;
   }
 }
 .user-slider__block {
+  box-sizing: border-box;
   height: 50px;
   width: 50px;
+  z-index: 1;
 }
 @media (min-width: 768px) {
   .user-slider__block {
@@ -421,9 +478,11 @@ input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
     box-sizing: border-box;
   }
 }
-.block-1 {
-  border-top: 1px dashed #c8c8c8;
-  border-bottom: 1px dashed #c8c8c8;
+@media (max-width: 768px) {
+  .block-1 {
+    border-top: 1px dashed #c8c8c8;
+    border-bottom: 1px dashed #c8c8c8;
+  }
 }
 @media (min-width: 768px) {
   .block-1 {
@@ -431,16 +490,45 @@ input[id="birthday-date"] ::-webkit-calendar-picker-indicator {
     border-right: 1px dashed #c8c8c8;
   }
 }
-.block-2 {
-  border-right: 1px dashed #c8c8c8;
+@media (max-width: 768px) {
+  .block-2 {
+    border-bottom: 1px dashed #c8c8c8;
+  }
 }
-.block-4 {
-  border-right: 1px dashed #c8c8c8;
+@media (min-width: 768px) {
+  .block-2 {
+    border-right: 1px dashed #c8c8c8;
+  }
+}
+@media (max-width: 768px) {
+  .block-4 {
+    border-bottom: 1px dashed #c8c8c8;
+  }
+}
+@media (min-width: 768px) {
+  .block-4 {
+    border-right: 1px dashed #c8c8c8;
+  }
 }
 .user-slider__icon {
-  width: 30%;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+}
+@media (min-width: 768px) {
+  .user-slider__icon {
+    justify-content: center;
+  }
+}
+.icon {
+  cursor: pointer;
   align-self: center;
   transform: rotate(270deg);
+}
+@media (min-width: 768px) {
+  .icon {
+    transform: rotate(0deg);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

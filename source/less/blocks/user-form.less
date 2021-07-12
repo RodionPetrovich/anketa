@@ -1,6 +1,10 @@
 .user-form {
+  max-width: 768px;
   text-align: center;
+  margin: 0 auto;
   margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: @tablet) {
     margin-bottom: 73px;
@@ -11,6 +15,31 @@
   text-align: center;
   margin-top: 25px;
   display: flex;
+  align-self: center;
+  justify-self: center;
+
+  &:nth-child(2) {
+    position: relative;
+    max-width: 320px;
+    /*::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-image: url(/source/img/Shape_2_copy.svg);
+      top: 0;
+    }*/
+    @media (min-width: @tablet) {
+
+    }
+
+    .arrow {
+      position: absolute;
+      right: 10%;
+      top: 45%;
+      cursor: pointer;
+    }
+  }
 }
 
 .user-form__field {
@@ -21,6 +50,7 @@
   box-sizing: border-box;
   margin: 0 auto;
   text-align: center;
+  padding-top: 10px;
 
   @media (min-width: @tablet) {
     min-width: 520px;
@@ -28,12 +58,16 @@
 }
 
 input[id="birthday-date"] {
-  ::-webkit-calendar-picker-indicator {
-    color: transparent;
-  }
-
   @media (min-width: @tablet) {
     min-width: 320px;
+  }
+}
+
+input[id="calendar"] {
+  min-width: 220px;
+
+  @media (min-width: @tablet) {
+
   }
 }
 
@@ -64,3 +98,12 @@ input[id="birthday-date"] {
   font-family: "Roboto", sans-serif;
 }
 
+.user-form__date {
+  position: absolute;
+  right: 25%;
+  z-index: 2;
+  justify-self: center;
+  align-self: center;
+  border: none;
+  height: 40px;
+}
