@@ -34,5 +34,8 @@
     "source/js/**/*.js",
     "source/img/**/*.svg",
     "source/less/**/*.less"
-  ]
+  ],
+  "dependencies": {
+    "nouislider": "^15.2.0"
+  }
 }

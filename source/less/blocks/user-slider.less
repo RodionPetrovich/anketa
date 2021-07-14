@@ -1,15 +1,42 @@
 .user-slider {
+  margin-top: 47px;
   padding: 10px;
   min-width: 300px;
   display: flex;
   justify-content: center;
-  /*flex-direction: column;*/
+  position: relative;
+  flex-direction: column;
 
   @media (min-width: @tablet) {
     max-width: 768px;
     margin: 0 auto;
-    flex-direction: column;
     margin-bottom: 72px;
+    margin-top: 47px;
+  }
+  /*Корректировка подключенного слайдера*/
+  .noUi-target {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .noUi-horizontal .noUi-handle {
+    top: 15px;
+  }
+
+  .noUi-handle {
+    border: none;
+    box-shadow: none;
+
+    &::after,
+    &::before {
+      display: none;
+    }
+    background: url("../../img/Rounded_Rectangle_4.svg") no-repeat center;
+  }
+
+  .noUi-connect {
+    background-image: linear-gradient(to right, #d7b3f4, #6544ee);
   }
 }
 
@@ -26,24 +53,42 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 0;
   box-sizing: border-box;
   margin: 0;
   height: 100%;
-  flex-direction: column;
+  flex-direction: row;
+  /*flex-direction: column;*/
 
   @media (min-width: @tablet) {
     flex-direction: row;
   }
+
+  @media (max-width: @tablet) {
+    height: 200px;
+    align-content: center;
+  }
 }
 
 .user-slider__item {
-  min-width: 192px;
-  height: 50px;
+  @media (max-width: @tablet) {
+    width: 50px;
+    height: 50px;
+    transform: rotate(90deg);
+  }
 
+  @media (min-width: @tablet) {
+    transform: rotate(0deg);
+    min-width: 192px;
+    height: 50px;
+  }
 
   p {
+    @media (max-width: @tablet) {
+      width: 190px;
+      height: 50px;
+    }
     margin: 0;
     /*padding-top: 15px;*/
   }
@@ -63,45 +108,55 @@
   }
 }
 
+.scale {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  justify-self: center;
+  flex-grow: 1;
+
+  @media (max-width: @tablet) {
+    width: 100%;
+  }
+
+  @media (min-width: @tablet) {
+    width: 100%;
+    height: 15px;
+    bottom: 0;
+  }
+}
 
 .user-slider__scale {
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   height: 100%;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
 
-  &::after {
-    content: "";
-    position: absolute;
-    background-color: aqua;
-    height: 100%;
+  @media (max-width: @tablet) {
     width: 100%;
-    
-
-    @media (min-width: @tablet) {
-      width: 100%;
-      height: 15px;
-
-      bottom: 0;
-    }
   }
 
-
   @media (min-width: @tablet) {
-    width: 768px;
+    width: 100%;
     flex-direction: row;
     box-sizing: border-box;
     height: 30px;
   }
 }
 
+
 .user-slider__block {
   box-sizing: border-box;
-  height: 50px;
-  width: 50px;
+  height: 100%;
+  width: 100%;
   z-index: 1;
 
+  @media (max-width: @tablet) {
+    width: 100%;
+  }
 
   @media (min-width: @tablet) {
     width: 192px;
@@ -111,38 +166,24 @@
 }
 
 .block-1 {
-  @media (max-width: @tablet) {
-    border-top: 1px dashed @text-grey;
-    border-bottom: 1px dashed @text-grey;
-  }
 
-  @media (min-width: @tablet) {
-    border-left: 1px dashed @text-grey;
-    border-right: 1px dashed @text-grey;
-  }
+  border-left: 1px dashed @text-grey;
+  border-right: 1px dashed @text-grey;
 }
 
 .block-2 {
-  @media (max-width: @tablet) {
-    border-bottom: 1px dashed @text-grey;
-  }
 
-  @media (min-width: @tablet) {
-    border-right: 1px dashed @text-grey;
-  }
+
+  border-right: 1px dashed @text-grey;
 }
 
 .block-3 {
 }
 
 .block-4 {
-  @media (max-width: @tablet) {
-    border-bottom: 1px dashed @text-grey;
-  }
 
-  @media (min-width: @tablet) {
-    border-right: 1px dashed @text-grey;
-  }
+
+  border-right: 1px dashed @text-grey;
 }
 
 .user-slider__icon {

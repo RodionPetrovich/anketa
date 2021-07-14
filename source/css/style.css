@@ -81,13 +81,14 @@ a {
 .main-nav__list {
   margin: 0;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 @media (min-width: 768px) {
   .main-nav__list {
     max-width: 501px;
     align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 .site-list {
@@ -382,19 +383,42 @@ input[id="calendar"] {
   transform: scale(1) translate(0, -50%);
 }
 .user-slider {
+  margin-top: 47px;
   padding: 10px;
   min-width: 300px;
   display: flex;
   justify-content: center;
-  /*flex-direction: column;*/
+  position: relative;
+  flex-direction: column;
+  /*Корректировка подключенного слайдера*/
 }
 @media (min-width: 768px) {
   .user-slider {
     max-width: 768px;
     margin: 0 auto;
-    flex-direction: column;
     margin-bottom: 72px;
+    margin-top: 47px;
   }
+}
+.user-slider .noUi-target {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.user-slider .noUi-horizontal .noUi-handle {
+  top: 15px;
+}
+.user-slider .noUi-handle {
+  border: none;
+  box-shadow: none;
+  background: url("../../img/Rounded_Rectangle_4.svg") no-repeat center;
+}
+.user-slider .noUi-handle::after,
+.user-slider .noUi-handle::before {
+  display: none;
+}
+.user-slider .noUi-connect {
+  background-image: linear-gradient(to right, #d7b3f4, #6544ee);
 }
 .user-slider__list {
   font-family: "Roboto", sans-serif;
@@ -405,25 +429,48 @@ input[id="calendar"] {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 0;
   box-sizing: border-box;
   margin: 0;
   height: 100%;
-  flex-direction: column;
+  flex-direction: row;
+  /*flex-direction: column;*/
 }
 @media (min-width: 768px) {
   .user-slider__list {
     flex-direction: row;
   }
 }
-.user-slider__item {
-  min-width: 192px;
-  height: 50px;
+@media (max-width: 768px) {
+  .user-slider__list {
+    height: 200px;
+    align-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .user-slider__item {
+    width: 50px;
+    height: 50px;
+    transform: rotate(90deg);
+  }
+}
+@media (min-width: 768px) {
+  .user-slider__item {
+    transform: rotate(0deg);
+    min-width: 192px;
+    height: 50px;
+  }
 }
 .user-slider__item p {
   margin: 0;
   /*padding-top: 15px;*/
+}
+@media (max-width: 768px) {
+  .user-slider__item p {
+    width: 190px;
+    height: 50px;
+  }
 }
 .user-slider__item:nth-child(2) p {
   width: 120px;
@@ -436,30 +483,42 @@ input[id="calendar"] {
     text-align: right;
   }
 }
-.user-slider__scale {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.scale {
   position: relative;
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  justify-self: center;
+  flex-grow: 1;
 }
-.user-slider__scale::after {
-  content: "";
-  position: absolute;
-  background-color: aqua;
-  height: 100%;
-  width: 100%;
+@media (max-width: 768px) {
+  .scale {
+    width: 100%;
+  }
 }
 @media (min-width: 768px) {
-  .user-slider__scale::after {
+  .scale {
     width: 100%;
     height: 15px;
     bottom: 0;
   }
 }
+.user-slider__scale {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+}
+@media (max-width: 768px) {
+  .user-slider__scale {
+    width: 100%;
+  }
+}
 @media (min-width: 768px) {
   .user-slider__scale {
-    width: 768px;
+    width: 100%;
     flex-direction: row;
     box-sizing: border-box;
     height: 30px;
@@ -467,9 +526,14 @@ input[id="calendar"] {
 }
 .user-slider__block {
   box-sizing: border-box;
-  height: 50px;
-  width: 50px;
+  height: 100%;
+  width: 100%;
   z-index: 1;
+}
+@media (max-width: 768px) {
+  .user-slider__block {
+    width: 100%;
+  }
 }
 @media (min-width: 768px) {
   .user-slider__block {
@@ -478,37 +542,15 @@ input[id="calendar"] {
     box-sizing: border-box;
   }
 }
-@media (max-width: 768px) {
-  .block-1 {
-    border-top: 1px dashed #c8c8c8;
-    border-bottom: 1px dashed #c8c8c8;
-  }
+.block-1 {
+  border-left: 1px dashed #c8c8c8;
+  border-right: 1px dashed #c8c8c8;
 }
-@media (min-width: 768px) {
-  .block-1 {
-    border-left: 1px dashed #c8c8c8;
-    border-right: 1px dashed #c8c8c8;
-  }
+.block-2 {
+  border-right: 1px dashed #c8c8c8;
 }
-@media (max-width: 768px) {
-  .block-2 {
-    border-bottom: 1px dashed #c8c8c8;
-  }
-}
-@media (min-width: 768px) {
-  .block-2 {
-    border-right: 1px dashed #c8c8c8;
-  }
-}
-@media (max-width: 768px) {
-  .block-4 {
-    border-bottom: 1px dashed #c8c8c8;
-  }
-}
-@media (min-width: 768px) {
-  .block-4 {
-    border-right: 1px dashed #c8c8c8;
-  }
+.block-4 {
+  border-right: 1px dashed #c8c8c8;
 }
 .user-slider__icon {
   text-align: left;
@@ -529,6 +571,29 @@ input[id="calendar"] {
   .icon {
     transform: rotate(0deg);
   }
+}
+.user-send-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 194px;
+}
+.send {
+  padding: 0;
+  width: 116px;
+  height: 51px;
+  border-radius: 15px;
+  background-color: #435993;
+  border: 1px solid transparent;
+  /* Style for "Готово" */
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
